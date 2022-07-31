@@ -1,16 +1,18 @@
 class Person
   attr_reader :name
-  attr_accessor :bank_account, :hygiene, :happiness
+  attr_writer :hygiene, :happiness
+  attr_accessor :bank_account
 
-  # # setter for @happiness
-  # def happiness
-  #   @happiness = happiness.clamp(0, 10)
-  # end
+
+  # getter for @happiness -- limit from 0 to 10
+  def happiness
+    @happiness.clamp(0,10)
+  end
   
-  # # setter for @hygiene
-  # def hygiene
-  #   @hygiene = hygiene.clamp(0, 10)
-  # end
+  # getter for @hygiene -- limit from 0 to 10
+  def hygiene
+    @hygiene.clamp(0,10)
+  end
 
 
   def initialize(name)
@@ -20,11 +22,36 @@ class Person
     @hygiene = 8
   end
 
-  def clean? 
-    if @hygiene > 7 
+
+  def happy? 
+    if happiness > 7 
       true
     else false 
     end
   end
 
+  def clean? 
+    if hygiene > 7 
+      true
+    else false 
+    end
+  end
+
+  def get_paid amount
+    bank_account += amount
+    "all about the benjamins"
+  end
+
+  def take_bath
+  end
+
+  def work_out
+  end
+
+  def call_friend
+  end
+
+  def start_conversation (person, topic)
+  end
+  
 end
